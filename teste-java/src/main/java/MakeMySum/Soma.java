@@ -1,4 +1,4 @@
-package MakeMySym;
+package MakeMySum;
 
 import java.util.Scanner;
 
@@ -7,6 +7,4 @@ public class Soma {
     int num1 = scanner.nextInt();
     int num2 = scanner.nextInt();
     int sum = num1 + num2;
-
-    public void 
 }

@@ -1,8 +1,8 @@
-package MakeMySym;
+package MakeMySum;
 
 import java.util.Scanner;
 
-public class MakeMySum {
+public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

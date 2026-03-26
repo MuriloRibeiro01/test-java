@@ -1,0 +1,7 @@
+# Arquivo deve conter:
+
+# Stage de build;
+
+# Stage de test;
+
+# Stage de deploy (simulado com echo).
