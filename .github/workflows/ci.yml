@@ -1,0 +1,41 @@
+on:
+  push:
+    branches: [main]
+
+jobs:
+  buildMaven:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+      - run: mvn clean compile
+
+  testMaven:
+    needs: buildMaven
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+      - run: mvn test
+      - uses: EnricoMi/publish-unit-test-result-action@v2
+        with:
+          report_paths: target/surefire-reports/TEST-*.xml
+
+  deployMaven:
+    needs: testMaven
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+      - run: echo "Efetuando deploy..."
+
