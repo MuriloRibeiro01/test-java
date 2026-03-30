@@ -8,6 +8,6 @@ public class CalculadoraTest {
     public void testSoma() {
         Calculadora calc = new Calculadora();
 
-        assertEquals(3, calc.soma(1, 2));
+        assertEquals(5, calc.soma(1, 2));
     }
 }
